@@ -47,7 +47,7 @@ export default function DrawerContentPage() {
             };
             console.log(userQuery);
 
-            const apiEndpoint = data.postType === 'blog' ? `${process.env.NEXTAUTH_URL}/api/blog` : `${process.env.NEXTAUTH_URL}/api/question`;
+            const apiEndpoint = data.postType === 'blog' ? `/api/blog` : `/api/question`;
 
             const { data: dataPost } = await axios.post(apiEndpoint, userQuery)
             console.log(dataPost)
