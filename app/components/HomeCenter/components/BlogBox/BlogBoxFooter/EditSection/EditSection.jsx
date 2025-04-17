@@ -1,20 +1,95 @@
 'use client'
-import { DropdownMenuItem } from '@/components/ui/dropdown-menu'
 import { Edit } from 'lucide-react'
-import React from 'react'
+import { Button } from "@/components/ui/button"
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { useForm } from 'react-hook-form'
+import { Textarea } from '@/components/ui/textarea'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import toast from 'react-hot-toast'
 
-export default function EditSection() {
-    const handleEdit = async () => {
-        console.log("Edit")
+export default function EditSection({ id }) {
+    const [blogContent, setBlogContent] = useState('')
+    const fetchBlogContent = async () => {
+        try {
+            const { data } = await axios(`/api/single-blog/${id}/edit`)
+            setBlogContent(data?.content || '')
+            return data
+        } catch (error) {
+            console.log('Content not found')
+            return null
+        }
+    }
+    useEffect(() => {
+        fetchBlogContent()
+    }, [id])
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        setValue
+    } = useForm()
+
+    useEffect(() => {
+        if (blogContent) {
+            setValue('content', blogContent)
+        }
+    }, [blogContent, setValue])
+    const onSubmit = async (data) => {
+        console.log(data)
+
+        try {
+            const res = await axios.patch(`/api/single-blog/${id}/edit`, { content: data.content })
+            console.log('Blog updated:', res.data)
+            toast.success('Post updated sucessfully')
+            await fetchBlogContent()
+        } catch (error) {
+            console.error('Post edit failed')
+            toast.error('Post edit failed')
+        }
     }
     return (
         <>
-            <DropdownMenuItem
-                onClick={handleEdit}
-                className="flex items-center space-x-2 hover:bg-gray-100 p-2 cursor-pointer">
-                <Edit className="w-4 h-4" />
-                <span>Edit</span>
-            </DropdownMenuItem>
+            <Dialog>
+                <DialogTrigger asChild>
+                    <div className="flex items-center space-x-4 hover:bg-gray-100 p-2 cursor-pointer rounded-md">
+                        <Edit className="w-4 h-4" />
+                        <span className='text-sm'>Edit</span>
+                    </div>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[600px] lg:max-w-[800px] xl:max-w-[900px]">
+                    <DialogHeader>
+                        <DialogTitle>Edit your post</DialogTitle>
+                    </DialogHeader>
+                    <form onSubmit={handleSubmit(onSubmit)} className="text-white md:p-6 rounded-lg shadow-lg space-y-4">
+                        <div className="space-y-2">
+                            <Label htmlFor="content">Content</Label>
+                            <Textarea
+                                id="content"
+                                // placeholder="Type your message here."
+                                className="w-full h-40 text-black"
+                                {...register('content', { required: 'Content is required' })}
+                            />
+                            {errors.content && (
+                                <p className="text-red-500 text-sm">{errors.content.message}</p>
+                            )}
+                        </div>
+                        <DialogFooter>
+                            <Button type="submit">Save changes</Button>
+                        </DialogFooter>
+                    </form>
+                </DialogContent>
+            </Dialog>
         </>
     )
 }

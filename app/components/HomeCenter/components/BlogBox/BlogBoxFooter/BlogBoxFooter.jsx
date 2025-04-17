@@ -28,7 +28,7 @@ export default function BlogBoxFooter({ card }) {
           </DropdownMenuTrigger>
           <DropdownMenuContent className="bg-white text-black p-2 rounded-lg shadow-md">
             {/* Edit */}
-            <EditSection />
+            <EditSection id={card._id} />
             {/* Delete button */}
             <DeleteSection id={card._id} />
             <DropdownMenuItem className="flex items-center space-x-2 hover:bg-gray-100 p-2 cursor-pointer">
