@@ -2,7 +2,7 @@ import Image from 'next/image';
 import profilePic from '@/public/assets/profile-pic.png'
 // import BlogBoxFooter from '../BlogBoxFooter/BlogBoxFooter';
 import { format } from 'date-fns';
-// import { BlogTableImagePart } from './BlogTableImagePart';
+import { BlogTableImagePart } from './BlogTableImagePart';
 
 export default async function BlogBoxTable({ cardData }) {
     return (
@@ -34,9 +34,9 @@ export default async function BlogBoxTable({ cardData }) {
                         </div>
 
                         {/* Post Images */}
-                        {/* <div className="">
+                        <div className="">
                             <BlogTableImagePart images={cardRes?.contentImage || []} />
-                        </div> */}
+                        </div>
 
                         {/* Reaction Buttons */}
                         {/* <div className="flex justify-between mt-4 text-gray-500 text-sm">
