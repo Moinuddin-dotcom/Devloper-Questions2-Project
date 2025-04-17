@@ -40,19 +40,8 @@ export default function PostInput() {
                 <div className="flex justify-center mt-4 max-w-sm mx-auto gap-1">
                     {/* Blog Trigger */}
                     <DrawerTrigger asChild>
-                        {/* <Button className="cursor-pointer flex items-center bg-blue-600 hover:bg-blue-700 text-white md:px-20 py-2 rounded-lg font-medium transition duration-300">
-                            ✍️ Add Blog
-                        </Button> */}
-                        {/* <InteractiveHoverButton className="hidden md:flex">✍️ Add Blog</InteractiveHoverButton> */}
                         <Button className="hidden md:flex">✍️ Add Blog</Button>
                     </DrawerTrigger>
-
-                    {/* Question Trigger */}
-                    {/* <DrawerTrigger asChild>
-                        <Button className="cursor-pointer flex items-center bg-black border border-red-500 text-white md:px-5 py-2 rounded-lg font-medium transition duration-300">
-                            ❓ Add Question
-                        </Button>
-                    </DrawerTrigger> */}
                 </div>
             </div>
             {/* DrawerContentPage Here */}

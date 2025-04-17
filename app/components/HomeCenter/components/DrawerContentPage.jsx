@@ -16,6 +16,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { useState } from "react";
 import profilePic from "@/public/assets/profile-pic.png"
+import RichTextEiditor from '@/app/components/rich-text-eiditor/index'
 // import RichTextEiditor from "@/components/rich-text-eiditor";
 // import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 
@@ -117,14 +118,14 @@ export default function DrawerContentPage() {
                     </label>
                 </div>
 
-                {/* <div>
+                <div>
                     <RichTextEiditor
                         setContent={setEditorContent}
                         setImageContent={(imageContent) =>
                             setImageContent(Array.isArray(imageContent) ? imageContent : [imageContent])
                         }
                     />
-                </div> */}
+                </div>
 
             </div>
             <DrawerFooter className="px-4">
