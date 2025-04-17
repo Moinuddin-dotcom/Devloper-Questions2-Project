@@ -24,7 +24,7 @@ export default function EditSection({ id, card }) {
     const [blogContent, setBlogContent] = useState('')
     const fetchBlogContent = async () => {
         try {
-            const { data } = await axios(`/api/single-blog/${id}/edit`)
+            const { data } = await axios(`/api/single-qus/${id}/edit`)
             setBlogContent(data?.content || '')
             return data
         } catch (error) {
@@ -51,7 +51,7 @@ export default function EditSection({ id, card }) {
         console.log(data)
 
         try {
-            const res = await axios.patch(`/api/single-blog/${id}/edit`, { content: data.content })
+            const res = await axios.patch(`/api/single-qus/${id}/edit`, { content: data.content })
             console.log('Blog updated:', res.data)
             toast.success('Post updated sucessfully')
             await fetchBlogContent()

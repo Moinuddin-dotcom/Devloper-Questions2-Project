@@ -10,6 +10,7 @@ import LikeSection from "./components/LikeSection";
 import DisLikeSection from "./components/DisLikeSection";
 import DeleteSection from "./components/DeleteSection";
 import CommentSection from "./components/CommentSection/CommentSection";
+import EditSection from "./components/EditSection";
 
 
 
@@ -39,10 +40,7 @@ export default function QuestionBoxFooter({ card }) {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="bg-white text-black p-2 rounded-lg shadow-md">
                         {/* Edit */}
-                        {/* <DropdownMenuItem className="flex items-center space-x-2 hover:bg-gray-100 p-2 cursor-pointer">
-                            <Edit className="w-4 h-4" />
-                            <span>Edit</span>
-                        </DropdownMenuItem> */}
+                        <EditSection id={card._id} card={card} />
                         {/* Delete btn */}
                         <DeleteSection id={card._id} />
                         <DropdownMenuItem className="flex items-center space-x-2 hover:bg-gray-100 p-2 cursor-pointer">
