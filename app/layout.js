@@ -1,6 +1,6 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 import SessionWrapper from "@/Providers/SessionWrapper";
 import { Toaster } from "react-hot-toast";
 import LayoutWrapper from "@/Providers/LayoutWrapper";

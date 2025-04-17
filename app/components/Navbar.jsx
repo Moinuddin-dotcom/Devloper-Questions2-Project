@@ -7,6 +7,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import profilePic from '@/public/assets/profile-pic.png'
+import DrawerContentPage from '@/app/components/HomeCenter/components/DrawerContentPage'
 
 export default function Navbar() {
     const { data: session, status } = useSession()
@@ -30,7 +31,7 @@ export default function Navbar() {
                 </div>
                 <Link href={'/'} className=" hidden lg:flex">
                     {/* <SparklesText text="DevQuestions" className="text-2xl" /> */}
-                    <h1> DevQuestions</h1>
+                    <h1 className='text-2xl'> DevQuestions</h1>
 
                 </Link>
                 <ul className="menu menu-horizontal px-1 hidden lg:flex">
@@ -38,7 +39,7 @@ export default function Navbar() {
                 </ul>
             </div>
             <div className="navbar-center ">
-                <input type="text" placeholder="Search" className="input input-bordered w-32 md:w-sm lg:w-96 text-black" />
+                <input type="text" placeholder="Search" className="input input-bordered w-32 md:w-sm lg:w-96 text-black bg-white" />
             </div>
             <div className="navbar-end">
                 {status === "authenticated" ? <>
@@ -96,7 +97,7 @@ export default function Navbar() {
                             </DrawerTrigger>
                         </div>
                         {/* DrawerContentPage Here */}
-                        {/* <DrawerContentPage /> */}
+                        <DrawerContentPage />
                     </Drawer>
                 </> :
                     <>
