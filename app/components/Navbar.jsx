@@ -93,7 +93,7 @@ export default function Navbar() {
                                 </Button>
                             </DrawerTrigger>
                             <DrawerTrigger asChild>
-                                <Button>Add Question</Button>
+                                <Button className='cursor-pointer bg-gradient-to-br from-purple-600 to-blue-500 text-white hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800'>Add Question</Button>
                             </DrawerTrigger>
                         </div>
                         {/* DrawerContentPage Here */}
@@ -104,7 +104,7 @@ export default function Navbar() {
                         <div className="flex gap-1.5">
                             <Link href={'/login'}>
                                 <button
-                                    className="btn btn-sm md:btn-md bg-red-400">Log In</button>
+                                    className="btn btn-sm md:btn-md lg:btn-wide cursor-pointer bg-gradient-to-br from-purple-600 to-blue-500 text-white hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800">Log In</button>
                             </Link>
                         </div>
                     </>
