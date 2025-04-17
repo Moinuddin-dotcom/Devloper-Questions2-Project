@@ -1,6 +1,6 @@
 import React from 'react'
 import PostInput from './components/PostInput'
-import BlogBoxTable from '@/app/components/HomeCenter/components/BlogBox/BlogBoxTable'
+import BlogBoxTable from '@/app/components/HomeCenter/components/BlogBox/BlogBoxTable/BlogBoxTable'
 import axios from 'axios';
 
 const fetchPostedData = async () => {
