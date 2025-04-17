@@ -33,8 +33,8 @@ export function QuestionTableImagePart({ images }) {
                     </CarouselItem>
                 ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className={'bg-black'} />
+            <CarouselNext className={'bg-black'} />
         </Carousel>
     );
 }

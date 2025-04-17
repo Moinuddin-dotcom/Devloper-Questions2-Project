@@ -6,7 +6,7 @@ import QuestionTable from "./components/QuestionTable/QuestionTable";
 // import QuestionTableTrending from "@/components/QuestionBox/QuestionTableTrending/QuestionTableTrending";
 
 
-
+export const revalidate = 0; // Disable caching, fetch fresh data on each request
 const fetchPostedData = async () => {
     try {
         const { data: postedData } = await axios.get(`${process.env.NEXTAUTH_URL}/api/question`);

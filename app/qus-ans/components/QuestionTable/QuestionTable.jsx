@@ -3,6 +3,7 @@ import { format } from 'date-fns';
 import Image from "next/image";
 import profilePic from '@/public/assets/profile-pic.png'
 import { QuestionTableImagePart } from './QuestionTableImagePart';
+import QuestionBoxFooter from '../QuestionFooter/QuestionFooter';
 
 
 
@@ -35,10 +36,10 @@ export default function QuestionTable({ cardData }) {
 
 
                     {/* Footer: Upvote(like), Downvote(dislike), Comment, Bookmark & Report */}
-                    {/* <div className="flex items-center justify-between w-full my-4">
+                    <div className="flex items-center justify-between w-full my-4">
                         <QuestionBoxFooter
                             card={item} />
-                    </div> */}
+                    </div>
                 </div>
             ))}
         </div>
