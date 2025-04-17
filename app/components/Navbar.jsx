@@ -17,7 +17,7 @@ export default function Navbar() {
         <li><Link href={'/qus-ans'}>Questions</Link></li>
     </>
     return (
-        <div className="navbar bg-black text-white shadow-sm sticky top-0 z-50">
+        <div className="navbar lg:px-5 bg-black text-white shadow-sm sticky top-0 z-50">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
