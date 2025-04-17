@@ -55,6 +55,7 @@ export default function DrawerContentPage() {
                 reset()
                 toast.success(`Your ${data?.postType} posted successfully`);
                 router.push('/')
+                router.refresh()
             } else {
                 toast.error('Failed to post your content');
             }
