@@ -55,7 +55,7 @@ export default function LikeSection({ card }) {
                         ${hashLikeCount ? "bg-blue-400" : "bg-white hover:bg-white"} 
                     ${hashLikeCount ? "text-white" : "text-gray-900 hover:text-blue-500"}`}>
                 {hashLikeCount ? <PiArrowFatUpFill className="text-white" /> : <PiArrowFatUpBold />}
-                <span><span className="font-semibold hidden md:flex justify-center items-center">Upvote</span><span>({likeCount})</span> </span>
+                <span className="flex gap-0.5"><span className="font-semibold hidden md:flex justify-center items-center">Upvote</span> <span>({likeCount})</span> </span>
             </Button>
         </>
     )

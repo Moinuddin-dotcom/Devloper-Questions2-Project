@@ -10,7 +10,7 @@ import CommentSection from './CommentSection/CommentSection'
 export default function BlogBoxFooter({ card }) {
   return (
     <>
-      <div className="flex items-center space-x-4">
+      <div className="flex justify-center items-center space-x-4">
         {/* Upvote Button */}
         <LikeSection card={card} />
 
