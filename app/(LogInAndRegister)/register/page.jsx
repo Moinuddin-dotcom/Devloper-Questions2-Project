@@ -1,13 +1,10 @@
-// 'use client'
+
 
 import SocialLoginReg from '../components/SocialLoginReg'
 import backgroundImage from '@/public/assets/login-registerBG.jpg'
 import RegisterInputs from './components/registerInputs'
-// import dynamic from 'next/dynamic'
-// import RegisterAnimation from './components/animation'
-
-// Dynamically import LoginAnimation to disable SSR
-// const RegisterAnimation = dynamic(() => import('./components/animation'), { ssr: false })
+import Image from 'next/image'
+import registerImage from '@/public/assets/Sign-up-pana.png'
 
 export default function RegisterPage() {
     return (
@@ -29,14 +26,14 @@ export default function RegisterPage() {
                 <div className="w-full max-w-md mx-auto justify-self-center">
                     {/* <RegisterInputs /> */}
                     <RegisterInputs />
-                    <div className="divider divider-accent">Social Logins</div>
+                    <div className="divider divider-accent text-white">Social Logins</div>
                     <SocialLoginReg />
                 </div>
 
 
                 {/* Right side: form */}
                 <div className="hidden md:block">
-                    {/* <RegisterAnimation /> */}
+                    <Image src={registerImage} alt='Login Image' width={600} height={600} />
                 </div>
             </div>
         </div>
