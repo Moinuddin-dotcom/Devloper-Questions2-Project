@@ -1,7 +1,9 @@
-import Image from "next/image";
+
 import HomeLeft from "./components/HomeLeft/HomeLeft";
 import HomeCenter from "./components/HomeCenter/HomeCenter";
 import HomeRight from "./components/HomeRight/HomeRight";
+
+export const revalidate = 0; // Disable caching, fetch fresh data on each request
 
 export default function Home() {
   return (

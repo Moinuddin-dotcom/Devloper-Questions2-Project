@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import profilePic from '@/public/assets/profile-pic.png'
-// import BlogBoxFooter from '../BlogBoxFooter/BlogBoxFooter';
 import { format } from 'date-fns';
 import { BlogTableImagePart } from './BlogTableImagePart';
+import BlogBoxFooter from '../BlogBoxFooter/BlogBoxFooter';
 
 export default async function BlogBoxTable({ cardData }) {
     return (
@@ -39,9 +39,9 @@ export default async function BlogBoxTable({ cardData }) {
                         </div>
 
                         {/* Reaction Buttons */}
-                        {/* <div className="flex justify-between mt-4 text-gray-500 text-sm">
+                        <div className="flex justify-between mt-4 text-gray-500 text-sm">
                             <BlogBoxFooter card={cardRes} />
-                        </div> */}
+                        </div>
                     </div>
                 )}
             </>
