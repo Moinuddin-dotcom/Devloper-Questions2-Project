@@ -71,7 +71,6 @@ export default function CommentSection({ card }) {
 
     return (
         <Dialog onOpenChange={(open) => open && fetchQusData()}>
-            {/* <Dialog onOpenChange={handleDialogOpen}> */}
             <DialogTrigger asChild>
                 <Button className="bg-white hover:bg-white border text-gray-900 hover:text-gray-100">
                     <div className="flex items-center sm:space-x-1 text-gray-900">
@@ -119,7 +118,6 @@ export default function CommentSection({ card }) {
                             <Textarea placeholder="Type your message here."
                                 {...register("comment", { required: true })} />
                         </div>
-                        {/* </div> */}
 
                     </form>
 
