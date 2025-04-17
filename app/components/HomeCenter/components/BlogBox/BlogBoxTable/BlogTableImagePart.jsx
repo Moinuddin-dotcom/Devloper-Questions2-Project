@@ -32,8 +32,8 @@ export function BlogTableImagePart({ images }) {
                     </CarouselItem>
                 ))}
             </CarouselContent>
-            <CarouselPrevious className={'bg-black'} />
-            <CarouselNext className={'bg-black'} />
+            <CarouselPrevious className={'bg-black hidden md:flex'} />
+            <CarouselNext className={'bg-black hidden md:flex'} />
         </Carousel>
     );
 }

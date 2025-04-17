@@ -86,15 +86,15 @@ export default function Navbar() {
 
 
                             <DrawerTrigger asChild>
-                                <Button className="cursor-pointer md:hidden flex items-center bg-black border border-red-500 text-white md:px-5 py-2 rounded-lg font-medium transition duration-300">
-                                    <span className="hidden">Add Question</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                <Button className="cursor-pointer  flex items-center bg-black border border-red-500 text-white md:px-5 py-2 rounded-lg font-medium transition duration-300">
+                                    <span className="hidden md:flex">Add Question</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                                     </svg>
                                 </Button>
                             </DrawerTrigger>
-                            <DrawerTrigger asChild>
-                                <Button className='cursor-pointer bg-gradient-to-br from-purple-600 to-blue-500 text-white hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800'>Add Question</Button>
-                            </DrawerTrigger>
+                            {/* <DrawerTrigger asChild>
+                                <Button className=' cursor-pointer bg-gradient-to-br from-purple-600 to-blue-500 text-white hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800'>Add Question</Button>
+                            </DrawerTrigger> */}
                         </div>
                         {/* DrawerContentPage Here */}
                         <DrawerContentPage />

@@ -30,7 +30,7 @@ export default function PostInput() {
                         <input
                             type="text"
                             placeholder="What's on your mind?"
-                            className="flex-1 bg-gray-100 text-gray-700 px-2 md:px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-blue-500"
+                            className="flex-1 bg-gray-100 text-gray-700 px-2 md:px-4 py-2 rounded-full border border-gray-300 outline-none focus:ring-2 focus:ring-blue-500 w-32 md:w-sm lg:w-96"
                             readOnly
                         />
                     </DrawerTrigger>

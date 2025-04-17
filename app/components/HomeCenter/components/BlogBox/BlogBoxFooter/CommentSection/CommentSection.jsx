@@ -69,7 +69,7 @@ export default function CommentSection({ card }) {
                 <Button className="bg-white hover:bg-white border text-gray-900 hover:text-gray-100">
                     <div className="flex items-center space-x-1 text-gray-900">
                         <MessageSquare className="w-5 h-5" />
-                        <span>Comments</span><span>({allComments?.length})</span>
+                        <span className='font-semibold hidden md:flex justify-center items-center'>Comments</span><span>({allComments?.length})</span>
                     </div>
                 </Button>
             </DialogTrigger>

@@ -51,11 +51,11 @@ export default function LikeSection({ card }) {
         <>
             <Button
                 onClick={updateLike}
-                className={`flex items-center space-x-1 border 
+                className={`flex items-center space-x-1 border gap-0
                         ${hashLikeCount ? "bg-blue-400" : "bg-white hover:bg-white"} 
                     ${hashLikeCount ? "text-white" : "text-gray-900 hover:text-blue-500"}`}>
                 {hashLikeCount ? <PiArrowFatUpFill className="text-white" /> : <PiArrowFatUpBold />}
-                <span><span className="font-semibold">Upvote</span> <span>({likeCount})</span> </span>
+                <span><span className="font-semibold hidden md:flex justify-center items-center">Upvote</span><span>({likeCount})</span> </span>
             </Button>
         </>
     )
