@@ -9,6 +9,7 @@ import React, { Suspense } from 'react'
 import profilePic from '@/public/assets/profile-pic.png'
 import DrawerContentPage from '@/app/components/HomeCenter/components/DrawerContentPage'
 import SearchInputs from './SearchFunctionality/Search'
+import LoadingPage from '@/app/loading'
 // import SearchWithAi from './SearchFunctionality/SearchWithAi'
 // import SearchSuspense from './SearchFunctionality/SearchSuspense'
 
@@ -43,7 +44,7 @@ export default function Navbar() {
             </div>
             <div className="navbar-center relative">
                 {/* Search bar */}
-                <Suspense fallback={<div>Loading search...</div>}>
+                <Suspense fallback={<div><LoadingPage /></div>}>
                     <SearchInputs />
                 </Suspense>
                 {/* <SearchWithAi /> */}
