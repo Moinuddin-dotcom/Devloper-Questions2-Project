@@ -1,15 +1,15 @@
 'use client'
 
 import { Suspense } from "react"
-import ResetPasswordForm from "./components/ResetPasswordForm"
+import SearchInputs from "./components/Search"
 
 
 // Page component with Suspense boundary
-export default function ResetPasswordPage() {
+export default function SearchSuspense() {
     return (
         <div className="min-h-screen flex items-center justify-center px-4 bg-black">
             <Suspense fallback={<p className="text-white">Loading...</p>}>
-                <ResetPasswordForm />
+                <SearchInputs />
             </Suspense>
         </div>
     )

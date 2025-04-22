@@ -8,7 +8,8 @@ import Link from 'next/link'
 import React from 'react'
 import profilePic from '@/public/assets/profile-pic.png'
 import DrawerContentPage from '@/app/components/HomeCenter/components/DrawerContentPage'
-import SearchInputs from './SearchFunctionality/Search'
+// import SearchInputs from './SearchFunctionality/components/Search'
+import SearchSuspense from './SearchFunctionality/SearchSuspense'
 
 export default function Navbar() {
     const { data: session, status } = useSession()
@@ -41,7 +42,8 @@ export default function Navbar() {
             </div>
             <div className="navbar-center ">
                 {/* Search bar */}
-                <SearchInputs />
+                {/* <SearchInputs /> */}
+                <SearchSuspense />
             </div>
             <div className="navbar-end">
                 {status === "authenticated" ? <>
