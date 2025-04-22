@@ -8,6 +8,7 @@ import Link from 'next/link'
 import React from 'react'
 import profilePic from '@/public/assets/profile-pic.png'
 import DrawerContentPage from '@/app/components/HomeCenter/components/DrawerContentPage'
+import SearchInputs from './SearchFunctionality/Search'
 
 export default function Navbar() {
     const { data: session, status } = useSession()
@@ -39,7 +40,8 @@ export default function Navbar() {
                 </ul>
             </div>
             <div className="navbar-center ">
-                <input type="text" placeholder="Search" className="input input-bordered w-32 md:w-sm lg:w-96 text-black bg-white" />
+                {/* Search bar */}
+                <SearchInputs />
             </div>
             <div className="navbar-end">
                 {status === "authenticated" ? <>

@@ -1,6 +1,6 @@
 'use client'
 
-import Navbar from "@/app/components/Navbar"
+import Navbar from "@/app/components/(SharedNav)/Navbar/Navbar"
 import { usePathname } from "next/navigation"
 
 export default function LayoutWrapper({ children }) {

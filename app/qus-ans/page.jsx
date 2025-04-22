@@ -7,18 +7,28 @@ import QuestionTable from "./components/QuestionTable/QuestionTable";
 
 
 export const revalidate = 0; // Disable caching, fetch fresh data on each request
-const fetchPostedData = async () => {
+const fetchPostedData = async (searchTerm = '') => {
     try {
         const { data: postedData } = await axios.get(`${process.env.NEXTAUTH_URL}/api/question`);
-        return postedData
+        if (!searchTerm) return postedData
+
+        return postedData.filter(post => {
+            const { name = '', content = '' } = post
+            return (
+                (name || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+                (content || '').toLowerCase().includes(searchTerm.toLowerCase())
+
+            )
+        })
     } catch (error) {
         console.error("Error fetching posts:", error);
         return []
     }
 };
 
-export default async function DevQuestions() {
-    const cardData = await fetchPostedData()
+export default async function DevQuestions({ searchParams }) {
+    const searchTerm = (searchParams?.search || '').toString()
+    const cardData = await fetchPostedData(searchTerm)
 
 
 
