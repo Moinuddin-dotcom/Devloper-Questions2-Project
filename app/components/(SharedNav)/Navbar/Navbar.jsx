@@ -9,6 +9,7 @@ import React, { Suspense } from 'react'
 import profilePic from '@/public/assets/profile-pic.png'
 import DrawerContentPage from '@/app/components/HomeCenter/components/DrawerContentPage'
 import SearchInputs from './SearchFunctionality/Search'
+// import SearchWithAi from './SearchFunctionality/SearchWithAi'
 // import SearchSuspense from './SearchFunctionality/SearchSuspense'
 
 export default function Navbar() {
@@ -40,13 +41,12 @@ export default function Navbar() {
                     {navLinks}
                 </ul>
             </div>
-            <div className="navbar-center ">
+            <div className="navbar-center relative">
                 {/* Search bar */}
-                {/* <SearchInputs /> */}
-                {/* <SearchSuspense /> */}
                 <Suspense fallback={<div>Loading search...</div>}>
                     <SearchInputs />
                 </Suspense>
+                {/* <SearchWithAi /> */}
             </div>
             <div className="navbar-end">
                 {status === "authenticated" ? <>
