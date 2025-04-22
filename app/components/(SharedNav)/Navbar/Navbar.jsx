@@ -5,11 +5,11 @@ import { Bell, MessagesSquare } from 'lucide-react'
 import { signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { Suspense } from 'react'
 import profilePic from '@/public/assets/profile-pic.png'
 import DrawerContentPage from '@/app/components/HomeCenter/components/DrawerContentPage'
-// import SearchInputs from './SearchFunctionality/components/Search'
-import SearchSuspense from './SearchFunctionality/SearchSuspense'
+import SearchInputs from './SearchFunctionality/Search'
+// import SearchSuspense from './SearchFunctionality/SearchSuspense'
 
 export default function Navbar() {
     const { data: session, status } = useSession()
@@ -43,7 +43,10 @@ export default function Navbar() {
             <div className="navbar-center ">
                 {/* Search bar */}
                 {/* <SearchInputs /> */}
-                <SearchSuspense />
+                {/* <SearchSuspense /> */}
+                <Suspense fallback={<div>Loading search...</div>}>
+                    <SearchInputs />
+                </Suspense>
             </div>
             <div className="navbar-end">
                 {status === "authenticated" ? <>
