@@ -2,11 +2,13 @@
 import { DropdownMenuItem } from '@/components/ui/dropdown-menu'
 import axios from 'axios'
 import { Delete } from 'lucide-react'
+import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import toast from 'react-hot-toast'
 
-export default function DeleteSection({ id }) {
+export default function DeleteSection({ id, card }) {
+    const { data: session } = useSession()
     const router = useRouter()
     const handleDelete = async (id) => {
         const resDelete = await axios.delete(`/api/single-qus/${id}`)
@@ -17,7 +19,7 @@ export default function DeleteSection({ id }) {
     }
     return (
         <>
-            <DropdownMenuItem
+            {(card?.email === session?.user?.email) && <DropdownMenuItem
                 // onClick={handleDelete}
                 onClick={() => handleDelete(id)}
                 className="flex items-center space-x-2 hover:bg-gray-100 p-2 cursor-pointer">
@@ -25,7 +27,8 @@ export default function DeleteSection({ id }) {
 
                     className="w-4 h-4" />
                 <span>Delete</span>
-            </DropdownMenuItem>
+            </DropdownMenuItem>}
+
         </>
     )
 }

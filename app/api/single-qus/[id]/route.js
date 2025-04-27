@@ -8,14 +8,22 @@ import { NextResponse } from "next/server"
 
 
 export const GET = async (req, { params }) => {
+    const id = await params.id;
+    if (!id) {
+        return NextResponse.json({ message: "ID is required" }, { status: 400 });
+    }
     const questionCollection = await dbConnect(collectionNameObj.questionCollection);
-    const query = { _id: new ObjectId(params.id) };
+    const query = { _id: new ObjectId(id) };
     const singleQus = await questionCollection.findOne(query);
     return NextResponse.json(singleQus);
 };
 
 export const DELETE = async (req, { params }) => {
-    const query = { _id: new ObjectId(params.id) };
+    const id = await params.id;
+    if (!id) {
+        return NextResponse.json({ message: "ID is required" }, { status: 400 });
+    }
+    const query = { _id: new ObjectId(id) };
     const questionCollection = await dbConnect(collectionNameObj.questionCollection);
     const currentQuestion = await questionCollection.findOne(query);
 

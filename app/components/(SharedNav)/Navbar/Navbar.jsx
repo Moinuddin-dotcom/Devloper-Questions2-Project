@@ -10,8 +10,6 @@ import profilePic from '@/public/assets/profile-pic.png'
 import DrawerContentPage from '@/app/components/HomeCenter/components/DrawerContentPage'
 import SearchInputs from './components/Search'
 import LoadingPage from '@/app/loading'
-// import SearchWithAi from './SearchFunctionality/SearchWithAi'
-// import SearchSuspense from './SearchFunctionality/SearchSuspense'
 
 export default function Navbar() {
     const { data: session, status } = useSession()
@@ -75,7 +73,7 @@ export default function Navbar() {
                                     tabIndex={0}
                                     className="menu menu-sm dropdown-content bg-white text-black rounded-box z-1 mt-3 w-52 p-2 shadow">
                                     <li>
-                                        <a> Profile</a>
+                                        <Link href={'/profile'}>Profile</Link>
                                     </li>
                                     <li><a>Settings</a></li>
                                     <li><a>Message</a></li>

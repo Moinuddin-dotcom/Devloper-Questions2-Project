@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs"
 
 export const loginUser = async (data) => {
   const { email, password } = data
-  const userCollection = dbConnect(collectionNameObj.userCollection)
+  const userCollection = await dbConnect(collectionNameObj.userCollection)
   
   const user = await userCollection.findOne({ email })
   if (!user) {

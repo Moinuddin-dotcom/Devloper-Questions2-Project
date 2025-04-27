@@ -30,7 +30,7 @@ export default function BlogBoxFooter({ card }) {
             {/* Edit */}
             <EditSection id={card._id} card={card} />
             {/* Delete button */}
-            <DeleteSection id={card._id} />
+            <DeleteSection id={card._id} card={card} />
             <DropdownMenuItem className="flex items-center space-x-2 hover:bg-gray-100 p-2 cursor-pointer">
               <Bookmark className="w-4 h-4" />
               <span>Bookmark</span>
