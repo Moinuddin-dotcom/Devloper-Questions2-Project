@@ -11,7 +11,7 @@ export async function PATCH(request) {
             return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
         }
 
-        const { name, bio, portfolio, location } = await request.json();
+        const { name, bio, portfolio, location, experience, about,education } = await request.json();
 
         // Validation
         if (bio && bio.split(/\s+/).filter(word => word.length > 0).length > 20) {
@@ -19,6 +19,9 @@ export async function PATCH(request) {
         }
         if (portfolio && !/^https?:\/\/[^\s$.?#].[^\s]*$/.test(portfolio)) {
             return NextResponse.json({ message: 'Portfolio must be a valid URL' }, { status: 400 });
+        }
+        if (about && about.split(/\s+/).filter(word => word.length > 0).length > 80) {
+            return NextResponse.json({ message: 'About must be 80 words or less' }, { status: 400 });
         }
 
         const collection = await dbConnect(collectionNameObj.userCollection);
@@ -36,6 +39,9 @@ export async function PATCH(request) {
                 bio: bio !== undefined ? bio.trim() : '',
                 portfolio: portfolio !== undefined ? portfolio.trim() : '',
                 location: location !== undefined ? location.trim() : '',
+                experience: experience !== undefined ? experience.trim() : '',
+                about: about !== undefined ? about.trim() : '',
+                education: education !== undefined ? education.trim() : '',
             },
         };
 

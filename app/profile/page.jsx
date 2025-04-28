@@ -5,6 +5,7 @@ import React from 'react'
 import ProfileHead from './components/ProfileHead'
 
 import ProfileNav from './components/ProfileNav'
+import ProfileFooter from './components/ProfileFooter'
 
 
 const fetchMyProfile = async () => {
@@ -38,6 +39,8 @@ export default async function MyProfile() {
             </div>
             {/* Profile general intro name image */}
             <ProfileHead myProfileData={myProfileData} />
+            {/* Profile Footer */}
+            <ProfileFooter />
         </div>
     )
 }

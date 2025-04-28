@@ -12,7 +12,7 @@ import toast from 'react-hot-toast'
 import ProfileHeadEdit from './ProfileHeadEdit'
 
 export default function ProfileHead({ myProfileData }) {
-    const { name, image, coverImage, bio, portfolio, location } = myProfileData || {}
+    const { name, image, coverImage, bio, portfolio, location, experience, about, education } = myProfileData || {}
     const [uploading, setUploading] = useState(false)
 
     const router = useRouter()
@@ -116,21 +116,28 @@ export default function ProfileHead({ myProfileData }) {
                             </p>
                             {/* Profile Info */}
                             <div className="">
-                                <a href={portfolio}>Portfolio: <span className='mt-2 text-blue-600 underline'>{portfolio}</span> </a>
+                                <a href={portfolio}><span className='mt-2 text-blue-600 underline'>{portfolio}</span> </a>
+                            </div>
+                            <div>
+                                {/* Location */}
+                                <p>📍 {location}</p>
+                            </div>
+                            <div>
+                                <p className=''>⚙️ {experience}</p>
+                            </div>
+                            <div>
+                                <p className=''>🎓 {education}</p>
                             </div>
                         </div>
                     </div>
 
                     {/* Footer Info */}
                     <div className="mt-4 text-sm text-gray-100">
-                        {/* Location */}
-                        <p>📍 {location}</p>
+
                         {/* Experience & Study */}
-                        <div className="flex space-x-4 mt-2">
-                            <div className="flex items-center space-x-1">
-                                {/* <Image src="/robi-logo.png" alt="Robi" width={20} height={20} /> */}
-                                <span>Robi Axiata Limited</span>
-                            </div>
+                        <h1 className='text-center underline underline-offset-2'>About me</h1>
+                        <div className="flex items-center space-x-1 mt-2">
+                            <div>{about}</div>
                         </div>
                     </div>
                 </div>
