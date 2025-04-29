@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import axios from 'axios'
-import { PlusIcon } from 'lucide-react'
+import { Mail, PlusIcon } from 'lucide-react'
 import { useSession } from 'next-auth/react'
 import React, { createElement, useEffect, useState } from 'react'
 
@@ -16,6 +16,8 @@ import {
 } from "@/components/ui/carousel"
 import Image from 'next/image'
 
+import profileImage from '@/public/assets/profile-pic.png'
+
 const stripHtmlTags = (html) => {
     const div = document.createElement('div')
     div.innerHTML = html
@@ -24,7 +26,7 @@ const stripHtmlTags = (html) => {
 
 const getFirstTenWords = (text) => {
     const words = text.trim().split(/\s+/)
-    return words.slice(0, 5).join(' ') + (words.length > 5 ? '...' : '');
+    return words.slice(0, 20).join(' ') + (words.length > 20 ? '...' : '');
 }
 
 
@@ -78,7 +80,7 @@ export default function MyPost() {
                                                         <div className='flex justify-start gap-2'>
                                                             <div className='Image'>
                                                                 <Image
-                                                                    src={post.image || null}
+                                                                    src={post.image || profileImage}
                                                                     alt={post.name}
                                                                     width={45}
                                                                     height={45}
@@ -86,19 +88,22 @@ export default function MyPost() {
                                                             </div>
                                                             <div className="userInfo">
                                                                 <h1 className='text-lg font-semibold'>{post.name}</h1>
-                                                                <div className='flex justify-center items-center'>
-                                                                    <span>💻</span>
-                                                                    <div className="text-gray-700 text-sm" dangerouslySetInnerHTML={{ __html: firstTenWords }} />
-                                                                </div>
+                                                                <p className='flex justify-center items-center text-gray-500 text-sm gap-1'><Mail className='w-5 h-5 bg-red-500 text-white rounded-sm' /> {post.email}</p>
                                                             </div>
                                                         </div>
                                                         <div className="contentimage">
-                                                            <Image
-                                                                src={post.contentImage[0] || null}
-                                                                alt={post.name}
-                                                                width={400}
-                                                                height={200}
-                                                                className='rounded-lg' />
+                                                            <div className='flex justify-start items-center'>
+                                                                {/* <span>💻</span> */}
+                                                                <div className="text-gray-700 text-sm" dangerouslySetInnerHTML={{ __html: firstTenWords }} />
+                                                            </div>
+                                                            <div>
+                                                                {post.contentImage && <Image
+                                                                    src={post.contentImage[0]}
+                                                                    alt={post.name}
+                                                                    width={400}
+                                                                    height={200}
+                                                                    className='rounded-lg' />}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </CardContent>
