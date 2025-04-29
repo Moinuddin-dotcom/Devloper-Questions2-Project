@@ -32,7 +32,7 @@ export default function ProfileHeadEdit({ myProfileData }) {
             bio: myProfileData?.bio || '',
             portfolio: myProfileData?.portfolio || '',
             location: myProfileData?.location || '',
-            experience: myProfileData?.experience || '',
+            // experience: myProfileData?.experience || '',
             about: myProfileData?.about || '',
             education: myProfileData?.education || '',
         },
@@ -115,14 +115,14 @@ export default function ProfileHeadEdit({ myProfileData }) {
                             </div>
                             {/* Experience */}
 
-                            <div className="grid grid-cols-1 gap-4">
+                            {/* <div className="grid grid-cols-1 gap-4">
                                 <Label htmlFor="location">Experience</Label>
                                 <Input
                                     id="experience"
                                     {...register('experience')}
                                     placeholder="Enter your experience "
                                 />
-                            </div>
+                            </div> */}
                             {/* Education */}
                             <div className="grid grid-cols-1 gap-4">
                                 <Label htmlFor="location">Education</Label>

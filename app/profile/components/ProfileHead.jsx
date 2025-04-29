@@ -12,7 +12,8 @@ import toast from 'react-hot-toast'
 import ProfileHeadEdit from './ProfileHeadEdit'
 
 export default function ProfileHead({ myProfileData }) {
-    const { name, image, coverImage, bio, portfolio, location, experience, about, education } = myProfileData || {}
+    
+    const { name, image, coverImage, bio, portfolio, location, about, education,experience } = myProfileData || {}
     const [uploading, setUploading] = useState(false)
 
     const router = useRouter()
@@ -124,7 +125,7 @@ export default function ProfileHead({ myProfileData }) {
                                     <p>📍 {location}</p>
                                 </div>
                                 <div>
-                                    <p className=''>⚙️ {experience}</p>
+                                    <p className=''>⚙️ {experience?.company}</p>
                                 </div>
                                 <div>
                                     <p className=''>🎓 {education}</p>
@@ -139,7 +140,7 @@ export default function ProfileHead({ myProfileData }) {
                         </div>
                     </div>
                     <div className="mt-4 text-sm text-gray-100">
-                        {/* Experience & Study */}
+                        {/* About me */}
                         <h1 className='text-center underline underline-offset-2'>About me</h1>
                         <div className="flex items-center space-x-1 mt-2">
                             <div>{about}</div>

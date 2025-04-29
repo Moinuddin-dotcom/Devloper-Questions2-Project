@@ -11,7 +11,8 @@ export async function PATCH(request) {
             return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
         }
 
-        const { name, bio, portfolio, location, experience, about,education } = await request.json();
+        // experience
+        const { name, bio, portfolio, location, about, education, } = await request.json();
 
         // Validation
         if (bio && bio.split(/\s+/).filter(word => word.length > 0).length > 20) {
@@ -39,7 +40,7 @@ export async function PATCH(request) {
                 bio: bio !== undefined ? bio.trim() : '',
                 portfolio: portfolio !== undefined ? portfolio.trim() : '',
                 location: location !== undefined ? location.trim() : '',
-                experience: experience !== undefined ? experience.trim() : '',
+                // experience: experience !== undefined ? experience.trim() : '',
                 about: about !== undefined ? about.trim() : '',
                 education: education !== undefined ? education.trim() : '',
             },

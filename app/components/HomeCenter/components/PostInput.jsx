@@ -8,7 +8,6 @@ import {
     DrawerTrigger,
 } from "@/components/ui/drawer"
 import profilePic from "@/public/assets/profile-pic.png"
-// import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button"
 import DrawerContentPage from "./DrawerContentPage"
 
 export default function PostInput() {
