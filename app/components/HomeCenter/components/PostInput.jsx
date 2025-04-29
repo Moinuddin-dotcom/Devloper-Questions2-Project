@@ -40,7 +40,7 @@ export default function PostInput() {
                 <div className="flex justify-center mt-4 max-w-sm mx-auto gap-1">
                     {/* Blog Trigger */}
                     <DrawerTrigger asChild>
-                        <Button className="hidden md:flex cursor-pointer bg-gradient-to-br from-purple-600 to-blue-500 text-white hover:bg-gradient-to-bl focus:ring-blue-300 dark:focus:ring-blue-800">✍️ Add Blog</Button>
+                        <Button className="hidden md:flex bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 text-gray-900 hover:bg-gradient-to-bl focus:ring-red-100 dark:focus:ring-red-400 cursor-pointer">✍️ Add Blog</Button>
                     </DrawerTrigger>
                 </div>
             </div>

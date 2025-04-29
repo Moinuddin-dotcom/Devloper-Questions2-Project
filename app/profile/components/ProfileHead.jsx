@@ -117,7 +117,7 @@ export default function ProfileHead({ myProfileData }) {
                                 </p>
                                 {/* Profile Info */}
                                 <div className="">
-                                    <a href={portfolio}><span className='mt-2 text-blue-600 underline'>{portfolio}</span> </a>
+                                    <a href={portfolio}><span className='mt-2 text-blue-400 underline'>{portfolio}</span> </a>
                                 </div>
                                 <div>
                                     {/* Location */}

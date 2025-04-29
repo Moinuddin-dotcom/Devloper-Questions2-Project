@@ -7,6 +7,7 @@ import ProfileHead from './components/ProfileHead'
 import ProfileNav from './components/ProfileNav'
 import Feature from './components/Feature'
 import MyPost from './components/MyPost'
+import Experience from './components/Experience'
 
 
 const fetchMyProfile = async () => {
@@ -47,6 +48,8 @@ export default async function MyProfile() {
 
             {/* MyPost */}
             <MyPost />
+            {/* Experience */}
+            <Experience />
         </div>
     )
 }
