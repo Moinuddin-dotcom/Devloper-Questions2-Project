@@ -5,10 +5,10 @@ import { NextResponse } from "next/server"
 
 export async function GET(req) {
     // Log the request headers to debug cookies
-    console.log('Request Headers--Server--->:', Object.fromEntries(req.headers))
+    // console.log('Request Headers--Server--->:', Object.fromEntries(req.headers))
 
     const session = await getServerSession(authOptions)
-    console.log("Session:---Server--->", session)
+    // console.log("Session:---Server--->", session)
 
     if (!session) {
         return NextResponse.json({ message: "Unauthorized access" }, { status: 401 })

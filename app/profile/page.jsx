@@ -5,7 +5,8 @@ import React from 'react'
 import ProfileHead from './components/ProfileHead'
 
 import ProfileNav from './components/ProfileNav'
-import ProfileFooter from './components/ProfileFooter'
+import Feature from './components/Feature'
+import MyPost from './components/MyPost'
 
 
 const fetchMyProfile = async () => {
@@ -17,7 +18,7 @@ const fetchMyProfile = async () => {
                 Cookie: cookieHeader ? `next-auth.session-token=${cookieHeader}` : ''
             }
         })
-        console.log("userData: ----UI-->", userData)
+        // console.log("userData: ----UI-->", userData)
         return userData || null
     } catch (error) {
         console.error("Error fetching user data:", error)
@@ -33,14 +34,19 @@ export default async function MyProfile() {
     }
     return (
         <div className="">
+
             <div className='flex justify-between items-center p-4 border-b-2 border-gray-500'>
                 {/* ProfileNav */}
                 <ProfileNav myProfileData={myProfileData} />
             </div>
+
             {/* Profile general intro name image */}
             <ProfileHead myProfileData={myProfileData} />
-            {/* Profile Footer */}
-            <ProfileFooter />
+            {/* Feature */}
+            <Feature />
+
+            {/* MyPost */}
+            <MyPost />
         </div>
     )
 }
