@@ -2,6 +2,7 @@
 
 import React from 'react'
 import AddExp from './components/AddExp'
+import { Badge } from '@/components/ui/badge'
 // import EditExp from './components/EditExp'
 
 export default function Experience({ experience }) {
@@ -16,9 +17,16 @@ export default function Experience({ experience }) {
 
             </div>
             <div className='space-y-2 mt-4'>
-                <p className='text-lg text-gray-100 font-semibold'>Company: {experience?.company}</p>
-                <p className='text-lg text-gray-100 font-semibold'>Title: {experience?.title}</p>
-                <p className='text-lg text-gray-100 font-semibold'>Employment: {experience?.employment}</p>
+                <p className='text-lg text-gray-100 font-semibold'>{experience?.title}</p>
+                <p className='text-sm text-gray-100 '>{experience?.company} | {experience?.employment}</p>
+                <p className='text-sm text-gray-100 '>{experience?.startDate} - {experience?.endDate}</p>
+            </div>
+            <div>
+                <p className='text-md'>Skills:</p>
+                <div className='space-x-2'>
+                    {experience?.skills?.map((skill, index) =>
+                        <Badge variant="secondary" key={index} className={''} >{skill}</Badge>)}
+                </div>
             </div>
         </div>
     )
