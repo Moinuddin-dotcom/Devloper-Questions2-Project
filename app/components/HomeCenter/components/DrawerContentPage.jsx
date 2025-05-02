@@ -17,8 +17,6 @@ import axios from "axios";
 import { useState } from "react";
 import profilePic from "@/public/assets/profile-pic.png"
 import RichTextEiditor from '@/app/components/rich-text-eiditor/index'
-// import RichTextEiditor from "@/components/rich-text-eiditor";
-// import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 
 export default function DrawerContentPage() {
     const { data: session } = useSession();
@@ -66,7 +64,8 @@ export default function DrawerContentPage() {
     };
 
     return (
-        <DrawerContent className=" bg-gray-900 text-white rounded-lg overflow-hidden">
+        // <DrawerContent className=" bg-gray-900 text-white rounded-lg overflow-hidden">
+        <DrawerContent className=" bg-white/5 backdrop-blur-sm text-white rounded-lg overflow-hidden">
             <div className="overflow-y-auto max-h-[75vh] px-2">
                 <DrawerHeader>
                     <DrawerTitle className="text-lg text-white text-center font-semibold">Create a Post</DrawerTitle>
@@ -84,7 +83,7 @@ export default function DrawerContentPage() {
                         className="rounded-full border border-blue-500"
                     />
                     <div>
-                        <p className="font-medium">{session?.user?.name}</p>
+                        <p className="font-medium text-white">{session?.user?.name}</p>
                     </div>
                 </div>
 
@@ -132,7 +131,7 @@ export default function DrawerContentPage() {
             <DrawerFooter className="px-4">
                 {selectedPostType && (
                     <Button
-                        className={` w-[200px] md:w-xl mx-auto py-2 rounded-lg cursor-pointer ${selectedPostType === 'blog' ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'bg-green-600 hover:bg-green-700 text-white'}`}
+                        className={` w-[200px] md:w-xl mx-auto py-2 rounded-lg cursor-pointer ${selectedPostType === 'blog' ? 'bg-black text-white border border-white' : 'bg-black text-white border border-white'}`}
                         onClick={handleSubmit(onSubmit)}
                     >
                         {selectedPostType === 'blog' ? 'Post Blog' : 'Ask Question'}
@@ -140,7 +139,7 @@ export default function DrawerContentPage() {
                 )}
 
                 <DrawerClose asChild>
-                    <Button className="w-[200px] md:w-xl mx-auto py-2 mt-2 bg-red-600 hover:bg-red-700">
+                    <Button variant={'outline'} className={'text-black w-[200px] md:w-xl mx-auto py-2 rounded-lg cursor-pointer'}>
                         Cancel
                     </Button>
                 </DrawerClose>

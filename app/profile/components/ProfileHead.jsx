@@ -128,7 +128,7 @@ export default function ProfileHead({ myProfileData }) {
                                     <p className=''>⚙️ {experience?.company}</p>
                                 </div>
                                 <div>
-                                    <p className=''>🎓 {education}</p>
+                                    {/* <p className=''>🎓 {education}</p> */}
                                 </div>
                             </div>
                         </div>

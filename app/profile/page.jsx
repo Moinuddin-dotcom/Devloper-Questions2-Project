@@ -8,6 +8,7 @@ import ProfileNav from './components/ProfileNav'
 import Feature from './components/Feature'
 import MyPost from './components/MyPost'
 import Experience from './components/Experience/Experience'
+import Education from './components/Education/Education'
 
 
 const fetchMyProfile = async () => {
@@ -50,6 +51,8 @@ export default async function MyProfile() {
             <MyPost />
             {/* Experience */}
             <Experience experience={myProfileData.experience} />
+            {/* Education */}
+            <Education education={myProfileData.education} />
         </div>
     )
 }

@@ -6,18 +6,14 @@ import { Label } from '@/components/ui/label'
 import axios from 'axios';
 import { isAfter, isEqual, parse } from 'date-fns';
 import { useRouter } from 'next/navigation';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import CreatableSelect from 'react-select/creatable';
 
 
-export default function AddExpDrawer() {
-    const { register, handleSubmit, reset, getValues, setValue, control, formState: { errors } } = useForm();
+export default function AddEduDrawer() {
+    const { register, handleSubmit, reset, getValues, formState: { errors } } = useForm();
     const router = useRouter();
 
-    const components = {
-        DropdownIndicator: null
-    }
 
 
 
@@ -25,7 +21,7 @@ export default function AddExpDrawer() {
         console.log(data)
 
         try {
-            const res = await axios.patch(`/api/update-profile-exp`, { experience: data });
+            const res = await axios.patch(`/api/update-profile-edu`, { education: data });
             if (res.status === 200) {
                 toast.success('Experience added successfully');
                 router.refresh();
@@ -36,38 +32,7 @@ export default function AddExpDrawer() {
         }
     }
 
-    const customStyles = {
-        control: (provided) => ({
-            ...provided,
-            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-            borderColor: '#d1d5db',
-            color: 'white',
-        }),
-        input: (provided) => ({
-            ...provided,
-            color: 'white',
-        }),
-        multiValue: (provided) => ({
-            ...provided,
-            backgroundColor: '#4b5563',
-        }),
-        multiValueLabel: (provided) => ({
-            ...provided,
-            color: 'white',
-        }),
-        multiValueRemove: (provided) => ({
-            ...provided,
-            color: 'white',
-            ':hover': {
-                backgroundColor: '#6b7280',
-                color: 'white',
-            },
-        }),
-        placeholder: (provided) => ({
-            ...provided,
-            color: '#9ca3af',
-        }),
-    };
+
 
 
     return (
@@ -76,91 +41,57 @@ export default function AddExpDrawer() {
                 {/* <div className='max-w-[90vw] border-4 mx-auto'> */}
                 <div className="mx-auto w-full max-w-xl overflow-y-auto">
                     <DrawerHeader>
-                        <DrawerTitle className={'text-white'}>Experience</DrawerTitle>
-                        <DrawerDescription className={'text-gray-300'}>Set your experience.</DrawerDescription>
+                        <DrawerTitle className={'text-white'}>Education</DrawerTitle>
+                        <DrawerDescription className={'text-gray-300'}>Set your education.</DrawerDescription>
                     </DrawerHeader>
                     <form onSubmit={handleSubmit(onSubmit)} className='space-x-4 '>
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-1.5'>
-                            {/* Title */}
+                            {/* Institute name */}
                             <div className="grid grid-cols-1 gap-4 p-4">
-                                <Label htmlFor="location" className={'text-white'}>Title</Label>
+                                <Label htmlFor="institute" className={'text-white'}>Institute Name</Label>
                                 <Input
-                                    id="title"
-                                    {...register('title')}
-                                    placeholder="Eg: Software Engineer"
+                                    id="institute"
+                                    {...register('institute')}
+                                    placeholder="Eg: Software Engineer University"
                                     className={'bg-white/10 text-white placeholder:text-gray-400 focus-visible:ring-0 focus-visible:border-gray-300'}
                                 />
                             </div>
-                            {/* Employment */}
+                            {/* Degree */}
                             <div className="grid grid-cols-1 gap-4 p-4">
-                                <Label htmlFor="location" className={'text-white'}>Employment type</Label>
+                                <Label htmlFor="degree" className={'text-white'}>Degree</Label>
                                 <Input
-                                    id="employment"
-                                    {...register('employment')}
-                                    placeholder="Eg: Full-time"
+                                    id="degree"
+                                    {...register('degree')}
+                                    placeholder="Eg: BBA/BSc/BA"
                                     className={'bg-white/10 text-white placeholder:text-gray-400 focus-visible:ring-0 focus-visible:border-gray-300'}
                                 />
                             </div>
-                            {/* Company name */}
+                            {/* Field of study */}
                             <div className="grid grid-cols-1 gap-4 p-4">
-                                <Label htmlFor="location" className={'text-white'}>Company name</Label>
+                                <Label htmlFor="fieldOfStudy" className={'text-white'}>Field Of Study</Label>
                                 <Input
-                                    id="company"
-                                    {...register('company')}
-                                    placeholder="Eg: Google"
+                                    id="fieldOfStudy"
+                                    {...register('fieldOfStudy')}
+                                    placeholder="Eg: Business/Computer Science"
                                     className={'bg-white/10 text-white placeholder:text-gray-400 focus-visible:ring-0 focus-visible:border-gray-300'}
                                 />
                             </div>
-                            {/* Skills name */}
+                            {/* Grade */}
                             <div className="grid grid-cols-1 gap-4 p-4">
-                                <Label htmlFor="skills" className={'text-white'}>Skills</Label>
-                                <Controller
-                                    name='skills'
-                                    control={control}
-                                    rules={{ required: 'Atleast one Skills are required' }}
-                                    render={({ field }) => (
-                                        <CreatableSelect
-                                            components={components}
-                                            inputValue={field.inputValue}
-                                            isClearable
-                                            isMulti
-                                            menuIsOpen={false}
-                                            onChange={(newValue) => {
-                                                field.onChange(newValue ? newValue.map(opt => opt.value) : [])
-                                            }}
-                                            onInputChange={(newInputValue) => {
-                                                field.onChange(field.value || [])
-                                                setValue('skillsInput', newInputValue)
-                                            }}
-                                            onKeyDown={(e) => {
-                                                const inputValue = getValues('skillsInput' || '')
-                                                if (!inputValue) return;
-                                                if (e.key === "Enter" || e.key === "Tab") {
-                                                    const currentValue = field.value || []
-                                                    if (currentValue.includes(inputValue)) {
-                                                        setValue('skillsInput', '')
-                                                        e.preventDefault();
-                                                        return;
-                                                    }
-                                                    field.onChange([...currentValue, inputValue])
-                                                    setValue('skillsInput', '')
-                                                    e.preventDefault();
+                                <Label htmlFor="grade" className={'text-white'}>Grade</Label>
+                                <Input
+                                    id="grade"
+                                    {...register('grade')}
+                                    placeholder="Eg: 3.5/4.0"
+                                    className={'bg-white/10 text-white placeholder:text-gray-400 focus-visible:ring-0 focus-visible:border-gray-300'}
+                                />
+                            </div>
 
-                                                }
-                                            }}
-                                            placeholder="Add skills..."
-                                            value={(field.value || []).map(skill => ({ label: skill, value: skill }))}
-                                            styles={customStyles}
-                                        />
-                                    )}
-                                />
-                                {errors.skills && <p className="text-red-500 text-sm">{errors.skills.message}</p>}
-                            </div>
                         </div>
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-1.5 '>
                             {/* Start Date picker */}
                             <div className='grid grid-cols-1 gap-4 p-4'>
-                                <Label htmlFor="startDate" className={'text-white'}>Start Date</Label>
+                                <Label htmlFor="startDate" className={'text-white'}>Start Date(month/date/year)</Label>
                                 <Input
                                     id="startDate"
                                     type={'date'}
@@ -177,7 +108,7 @@ export default function AddExpDrawer() {
                             </div>
                             <div className='grid grid-cols-1 gap-4 p-4'>
                                 {/* End Date picker */}
-                                <Label htmlFor="endDate" className={'text-white'}>End Date</Label>
+                                <Label htmlFor="endDate" className={'text-white'}>End Date(month/date/year)</Label>
                                 <Input
                                     id="endDate"
                                     type={'date'}
