@@ -13,8 +13,16 @@ export async function PATCH(req) {
         const collection = await dbConnect(collectionNameObj.userCollection)
         const currentUser = await collection.findOne({ email })
         if (!currentUser) return NextResponse.json({ message: 'User not found' }, { status: 404 })
+        //Ensure education field exists as an array if not then initialize it
+        if (!Array.isArray(currentUser.education)) {
+            await collection.updateOne(
+                { email },
+                { $set: { education: [] } }
+            )
+        }
+
         const updateUserProfile = {
-            $set: {
+            $push: {
                 education
             }
         }

@@ -10,6 +10,10 @@ import profilePic from '@/public/assets/profile-pic.png'
 import DrawerContentPage from '@/app/components/HomeCenter/components/DrawerContentPage'
 import SearchInputs from './components/Search'
 import LoadingPage from '@/app/loading'
+import { SparklesText } from '@/components/magicui/sparkles-text'
+
+
+
 
 export default function Navbar() {
     const { data: session, status } = useSession()
@@ -33,8 +37,8 @@ export default function Navbar() {
                 </div>
                 <Link href={'/'} className=" hidden lg:flex">
                     {/* <SparklesText text="DevQuestions" className="text-2xl" /> */}
-                    <h1 className='text-2xl'> DevQuestions</h1>
-
+                    {/* <h1 className='text-2xl'> DevQuestions</h1> */}
+                    <SparklesText className={'text-2xl'}>DevQuestions</SparklesText>
                 </Link>
                 <ul className="menu menu-horizontal px-1 hidden lg:flex">
                     {navLinks}

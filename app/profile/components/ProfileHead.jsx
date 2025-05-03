@@ -12,8 +12,8 @@ import toast from 'react-hot-toast'
 import ProfileHeadEdit from './ProfileHeadEdit'
 
 export default function ProfileHead({ myProfileData }) {
-    
-    const { name, image, coverImage, bio, portfolio, location, about, education,experience } = myProfileData || {}
+
+    const { name, image, coverImage, bio, portfolio, location, about, education, experience } = myProfileData || {}
     const [uploading, setUploading] = useState(false)
 
     const router = useRouter()
@@ -86,7 +86,7 @@ export default function ProfileHead({ myProfileData }) {
                                 <Image
                                     src={image || profilePicture}
                                     alt="Profile Picture"
-                                    width={120}
+                                    width={180}
                                     height={100}
                                     className="rounded-lg border-2 border-white"
                                 />
@@ -128,13 +128,14 @@ export default function ProfileHead({ myProfileData }) {
                                     <p className=''>⚙️ {experience?.company}</p>
                                 </div>
                                 <div>
-                                    {/* <p className=''>🎓 {education}</p> */}
+                                    {/* <p className=''>🎓 {education.map(edu=> `${edu.degree} in ${edu.fieldOfStudy}`).join(', ')}</p> */}
+                                    <p className=''>🎓 {education[0]?.degree} in {education[0]?.fieldOfStudy}</p>
                                 </div>
                             </div>
                         </div>
                         <div className='flex gap-2'>
                             <Button
-                                className={'bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 text-gray-900 hover:bg-gradient-to-bl focus:ring-red-100 dark:focus:ring-red-400 cursor-pointer '}> <Bookmark />Bookmark</Button>
+                                className={'bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 text-gray-900 hover:bg-gradient-to-bl focus:ring-red-100 dark:focus:ring-red-400 cursor-pointer '}> <Bookmark /></Button>
                             {/* Profile edit modal */}
                             <ProfileHeadEdit myProfileData={myProfileData} />
                         </div>

@@ -17,14 +17,19 @@ export default function Education({ education }) {
                 </div>
 
             </div>
-            <div className='space-y-2 mt-4'>
-                <p className='text-lg text-gray-100 font-semibold'>{education?.institute}</p>
-                <p className='text-sm text-gray-100 '><Badge variant="secondary" >{education?.degree}
-                </Badge> | <Badge variant="secondary" >{education?.fieldOfStudy}</Badge></p>
-                <p className='text-sm text-gray-100 '>{education?.startDate} - {education?.endDate}</p>
-            </div>
+            {education?.length ?
+                <>
+                    {education?.map((edu, idx) => <div key={idx} className='space-y-2 mt-4 border-b border-white'>
+                        <p className='text-lg text-gray-100 font-semibold'>{edu?.institute}</p>
+                        <p className='text-sm text-gray-100 '><Badge variant="secondary" >{edu?.degree}
+                        </Badge> | <Badge variant="secondary" >{edu?.fieldOfStudy}</Badge></p>
+                        <p className='text-sm text-gray-100 '>{edu?.startDate} - {edu.endDate}</p>
+                    </div>)}
+                </> : <p className='text-md'>No education added yet.</p>
+            }
+
             <div>
-                <p className='text-md'>Skills:</p>
+                {/* <p className='text-md'>Skills:</p> */}
                 {/* <div className='space-x-2'>
                     {education?.skills?.map((skill, index) =>
                         <Badge variant="secondary" key={index} className={''} >{skill}</Badge>)}
